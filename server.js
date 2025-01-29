@@ -86,7 +86,7 @@ app.get("/ec", (req, res) => {
 // Button endpoints (POST)
 app.post("/buttons", (req, res) => {
   const { button, state } = req.body;
-  const topic = button === 1 ? "control/button1" : "control/button2";
+  const topic = button === 1 ? "motor/ac" : "motor/dc";
   const message = state ? "ON" : "OFF";
 
   mqttClient.publish(topic, message, (err) => {
